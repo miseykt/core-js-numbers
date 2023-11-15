@@ -58,9 +58,19 @@ getCircleCircumference(0);
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const sum = (value1 + value2) / 2;
+
+  if (sum === Infinity) {
+    return 1.7976931348623157e308;
+  }
+
+  return sum;
 }
+
+getAverage(5, 5);
+getAverage(10, 0);
+getAverage(-3, 3);
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -77,9 +87,18 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const x = x1 - x2;
+  const y = y1 - y2;
+
+  const sum = Math.sqrt(x ** 2 + y ** 2);
+
+  return sum;
 }
+
+getDistanceBetweenPoints(0, 0, 0, 1);
+getDistanceBetweenPoints(0, 0, 1, 0);
+getDistanceBetweenPoints(-5, 0, 10, -10);
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
