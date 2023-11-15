@@ -112,9 +112,14 @@ getDistanceBetweenPoints(-5, 0, 10, -10);
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const sum = -b / a;
+  return sum;
 }
+
+getLinearEquationRoot(5, 10);
+getLinearEquationRoot(1, 8);
+getLinearEquationRoot(5, 0);
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -133,9 +138,17 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const sum = x1 * x2 + y1 * y2;
+  const sum2 = Math.sqrt(x1 ** 2 + y1 ** 2 * x2 ** 2 + y2 ** 2);
+  const sum3 = sum / sum2;
+  return Math.acos(sum3);
 }
+
+getAngleBetweenVectors(1, 0, 0, 1);
+getAngleBetweenVectors(0, 1, 0, -1);
+getAngleBetweenVectors(0, -1, 1, 0);
+getAngleBetweenVectors(0, 1, 0, 1);
 
 /**
  * Returns a last digit of a integer number.
