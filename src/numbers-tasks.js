@@ -18,9 +18,13 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  const sum = width * height;
+  return sum;
 }
+
+getRectangleArea(5, 10);
+getRectangleArea(5, 5);
 
 /**
  * Returns a circumference of circle given by radius.
@@ -33,9 +37,10 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+
 }
+
 
 /**
  * Returns an average of two given numbers.
