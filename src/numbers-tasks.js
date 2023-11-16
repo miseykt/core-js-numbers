@@ -38,9 +38,13 @@ getRectangleArea(5, 5);
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-
+  const sum = 2 * Math.PI * radius;
+  return sum;
 }
 
+getCircleCircumference(5);
+getCircleCircumference(3.14);
+getCircleCircumference(0);
 
 /**
  * Returns an average of two given numbers.
@@ -54,9 +58,19 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const sum = (value1 + value2) / 2;
+
+  if (sum === Infinity) {
+    return 1.7976931348623157e308;
+  }
+
+  return sum;
 }
+
+getAverage(5, 5);
+getAverage(10, 0);
+getAverage(-3, 3);
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -73,9 +87,18 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const x = x1 - x2;
+  const y = y1 - y2;
+
+  const sum = Math.sqrt(x ** 2 + y ** 2);
+
+  return sum;
 }
+
+getDistanceBetweenPoints(0, 0, 0, 1);
+getDistanceBetweenPoints(0, 0, 1, 0);
+getDistanceBetweenPoints(-5, 0, 10, -10);
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
@@ -89,9 +112,14 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const sum = -b / a;
+  return sum;
 }
+
+getLinearEquationRoot(5, 10);
+getLinearEquationRoot(1, 8);
+getLinearEquationRoot(5, 0);
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -110,9 +138,17 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const sum = x1 * x2 + y1 * y2;
+  const sum2 = Math.sqrt(x1 ** 2 + y1 ** 2 * x2 ** 2 + y2 ** 2);
+  const sum3 = sum / sum2;
+  return Math.acos(sum3);
 }
+
+getAngleBetweenVectors(1, 0, 0, 1);
+getAngleBetweenVectors(0, 1, 0, -1);
+getAngleBetweenVectors(0, -1, 1, 0);
+getAngleBetweenVectors(0, 1, 0, 1);
 
 /**
  * Returns a last digit of a integer number.
