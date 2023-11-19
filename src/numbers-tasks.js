@@ -267,9 +267,23 @@ roundToPowerOfTen(1678, 3);
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
+
+isPrime(4);
+isPrime(5);
+isPrime(6);
+isPrime(7);
+isPrime(11);
+isPrime(12);
+isPrime(16);
+isPrime(17);
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
