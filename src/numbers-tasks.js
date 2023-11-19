@@ -184,9 +184,17 @@ getLastDigit(0);
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const parseNumber = parseFloat(value);
+  return parseNumber;
 }
+
+const strNum = '100';
+const strNum2 = '37';
+const strNum3 = '-525.5';
+parseNumberFromString(strNum);
+parseNumberFromString(strNum2);
+parseNumberFromString(strNum3);
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -201,9 +209,14 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  const getDiagonal = Math.sqrt(a ** 2 + b ** 2 + c ** 2);
+  return getDiagonal;
 }
+
+getParallelepipedDiagonal(1, 1, 1);
+getParallelepipedDiagonal(3, 3, 3);
+getParallelepipedDiagonal(1, 2, 3);
 
 /**
  * Returns the number rounded to specified power of 10.
@@ -222,9 +235,20 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const sum = 10 ** pow;
+  const round = Math.round(num / sum) * sum;
+  return round;
 }
+
+roundToPowerOfTen(1234, 0);
+roundToPowerOfTen(1234, 1);
+roundToPowerOfTen(1234, 2);
+roundToPowerOfTen(1234, 3);
+roundToPowerOfTen(1678, 0);
+roundToPowerOfTen(1678, 1);
+roundToPowerOfTen(1678, 2);
+roundToPowerOfTen(1678, 3);
 
 /**
  * Returns true is the number is prime; otherwise false.
