@@ -163,9 +163,15 @@ getAngleBetweenVectors(0, 1, 0, 1);
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  const lastDigit = value % 10;
+  return lastDigit;
 }
+
+getLastDigit(100);
+getLastDigit(37);
+getLastDigit(5);
+getLastDigit(0);
 
 /**
  * Returns a number by given string representation.
