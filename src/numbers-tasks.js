@@ -300,9 +300,19 @@ isPrime(17);
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = parseInt(value, 10);
+  if (!Number.isNaN(num)) {
+    return num;
+  }
+  return def;
 }
+
+toNumber(null, 0);
+toNumber('test', 0);
+toNumber('1', 0);
+toNumber(42, 0);
+toNumber(42, 0);
 
 /**
  * Returns the cube of the given number.
@@ -315,9 +325,14 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  const cube = num ** 3;
+  return cube;
 }
+
+getCube(3);
+getCube(-2);
+getCube(0);
 
 /**
  * Returns the Fibonacci number located at the index position.
@@ -332,9 +347,19 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index <= 1) {
+    return index;
+  }
+
+  return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
+
+getFibonacciNumber(0);
+getFibonacciNumber(1);
+getFibonacciNumber(2);
+getFibonacciNumber(3);
+getFibonacciNumber(10);
 
 /**
  * Returns the sum of all numbers from 1 to n.
@@ -347,9 +372,18 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i += 1) {
+    sum += i;
+  }
+
+  return sum;
 }
+
+getSumToN(5);
+getSumToN(10);
+getSumToN(1);
 
 /**
  * Returns the sum of the digits of a given number.
@@ -362,9 +396,21 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  const numToString = num.toString();
+  let sum = 0;
+
+  for (let i = 0; i < numToString.length; i += 1) {
+    const digit = parseInt(numToString[i], 10);
+    sum += digit;
+  }
+
+  return sum;
 }
+
+getSumOfDigits(123);
+getSumOfDigits(202);
+getSumOfDigits(5);
 
 /**
  * Returns true if the given number is a power of two, false otherwise.
