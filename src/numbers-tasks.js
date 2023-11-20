@@ -614,7 +614,7 @@ getFloatOnString('abcdefgh');
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -628,9 +628,13 @@ function getIntegerOnString(str, base) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  return Number.isSafeInteger(number);
 }
+
+isSafeInteger(10);
+isSafeInteger(3.5);
+isSafeInteger(2 ** 53);
 
 /**
  * Returns the smallest integer less than or equal to a given number.
@@ -642,9 +646,12 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  return Math.floor(number);
 }
+
+roundToSmallestInteger(5.9);
+roundToSmallestInteger(-5.1);
 
 /**
  * Returns the largest integer greater than or equal to a given number.
@@ -656,9 +663,12 @@ function roundToSmallestInteger(/* number */) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(number) {
+  return Math.ceil(number);
 }
+
+roundToLargestInteger(5.1);
+roundToLargestInteger(-5.9);
 
 /**
  * Returns the value of a number rounded to the nearest integer.
@@ -671,9 +681,13 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  return Math.round(number);
 }
+
+roundToNearestInteger(5.5);
+roundToNearestInteger(5.4);
+roundToNearestInteger(-5.5);
 
 /**
  * Returns the integer part of a number by removing any fractional digits.
@@ -686,9 +700,13 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  return Math.trunc(number);
 }
+
+getIntegerPartNumber(5.5);
+getIntegerPartNumber(5.4);
+getIntegerPartNumber(-5.5);
 
 /**
  * Returns the sum of numbers.
@@ -702,9 +720,13 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  const sum = x1 + x2 + x3;
+  return parseFloat(sum.toFixed(15));
 }
+
+getSumOfNumbers(1, 2, 3);
+getSumOfNumbers(0.1, 0.2, 0.3);
 
 /**
  * Returns the largest number.
@@ -718,9 +740,13 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
+
+getMaxNumber(1, 2);
+getMaxNumber(-5, -6);
+getMaxNumber(0, 5);
 
 /**
  * Returns a random integer in the range from min to max.
@@ -734,9 +760,13 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+getRandomInteger(1, 2);
+getRandomInteger(-5, 0);
+getRandomInteger(-1, 1);
 
 /**
  * Returns the length of the hypotenuse of a right triangle.
@@ -748,9 +778,11 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
+
+getHypotenuse(3, 4);
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
@@ -765,9 +797,21 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let count = 0;
+
+  for (let i = 0; i <= Math.abs(number); i += 1) {
+    if (i % 2 !== 0) {
+      count += 1;
+    }
+  }
+  return count;
 }
+
+getCountOfOddNumbers(4);
+getCountOfOddNumbers(5);
+getCountOfOddNumbers(10);
+getCountOfOddNumbers(15);
 
 module.exports = {
   getRectangleArea,
