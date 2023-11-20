@@ -423,9 +423,13 @@ getSumOfDigits(5);
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  return Math.log2(num) % 1 === 0;
 }
+
+isPowerOfTwo(4);
+isPowerOfTwo(16);
+isPowerOfTwo(15);
 
 /**
  * Returns the sine of a number.
@@ -437,9 +441,12 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
+
+getSine(0);
+getSine(Math.PI / 2);
 
 /**
  * Returns a string representation of a number in a specified base (radix).
@@ -452,9 +459,12 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
+
+numberToStringInBase(255, 16);
+numberToStringInBase(2, 2);
 
 /**
  * Returns a string representation of a number in exponential notation.
@@ -466,9 +476,11 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return number.toExponential(fractionDigits);
 }
+
+toExponential(12345, 2);
 
 /**
  * Returns a string representation of a number in fixed-point notation.
@@ -481,9 +493,12 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return Number.parseFloat(number).toFixed(fractionDigits);
 }
+
+toFixed(12345, 2);
+toFixed(12.345, 1);
 
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
@@ -497,9 +512,12 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  return Number.parseFloat(number).toPrecision(precision);
 }
+
+toPrecision(12345, 7);
+toPrecision(12.345, 4);
 
 /**
  * Returns the primitive value of a Number object.
@@ -511,9 +529,12 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
+
+getNumberValue(5);
+getNumberValue(Number(-5));
 
 /**
  * Returns a boolean value indicating whether the parameter is a number or not.
@@ -530,9 +551,17 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return typeof number === 'number' && Number.isFinite(number);
 }
+
+isNumber(Infinity);
+isNumber(NaN);
+isNumber(0);
+isNumber('a' / 1);
+isNumber('a');
+isNumber(5);
+isNumber('5');
 
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
@@ -545,9 +574,13 @@ function isNumber(/* number */) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  return Number.isInteger(number);
 }
+
+isInteger(5);
+isInteger(5.1);
+isInteger('5');
 
 /**
  * Returns a floating point number or, if the number cannot be parsed from the argument, returns NaN.
@@ -559,9 +592,12 @@ function isInteger(/* number */) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  return Number.parseFloat(str);
 }
+
+getFloatOnString('4.567abcdefgh');
+getFloatOnString('abcdefgh');
 
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
@@ -577,8 +613,8 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+
 }
 
 /**
